@@ -1,0 +1,328 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Fibo-Blocks Demo - Golden Ratio Design System</title>
+  <link rel="stylesheet" href="../src/styles/base.css">
+  <style>
+    /* Demo-specific styles */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+      font-size: var(--fibo-font-size-base);
+      line-height: var(--fibo-line-height-normal);
+      color: #1a1a1a;
+      background: #f5f5f5;
+    }
+
+    /* Container examples */
+    .container {
+      max-width: var(--fibo-container-lg);
+      margin: 0 auto;
+      padding: var(--fibo-spacing-8);
+    }
+
+    /* Card examples */
+    .card {
+      background: white;
+      padding: var(--fibo-spacing-8);
+      border-radius: var(--fibo-radius-lg);
+      box-shadow: var(--fibo-shadow-md);
+      margin-bottom: var(--fibo-spacing-5);
+    }
+
+    /* Typography examples */
+    h1 {
+      font-size: var(--fibo-font-size-4xl);
+      line-height: var(--fibo-line-height-tight);
+      letter-spacing: var(--fibo-letter-spacing-tighter);
+      font-weight: var(--fibo-font-weight-bold);
+      margin-bottom: var(--fibo-spacing-8);
+      color: #2c3e50;
+    }
+
+    h2 {
+      font-size: var(--fibo-font-size-2xl);
+      line-height: var(--fibo-line-height-tight);
+      letter-spacing: var(--fibo-letter-spacing-tight);
+      font-weight: var(--fibo-font-weight-semibold);
+      margin-bottom: var(--fibo-spacing-5);
+      color: #34495e;
+    }
+
+    h3 {
+      font-size: var(--fibo-font-size-xl);
+      line-height: var(--fibo-line-height-normal);
+      margin-bottom: var(--fibo-spacing-3);
+      color: #34495e;
+    }
+
+    p {
+      font-size: var(--fibo-font-size-base);
+      line-height: var(--fibo-line-height-relaxed);
+      margin-bottom: var(--fibo-spacing-5);
+      color: #555;
+    }
+
+    /* Button examples */
+    .btn {
+      display: inline-block;
+      padding: var(--fibo-spacing-3) var(--fibo-spacing-5);
+      font-size: var(--fibo-font-size-base);
+      font-weight: var(--fibo-font-weight-medium);
+      border: none;
+      border-radius: var(--fibo-radius-md);
+      cursor: pointer;
+      transition: all 0.2s;
+      text-decoration: none;
+    }
+
+    .btn-primary {
+      background: #3498db;
+      color: white;
+      box-shadow: var(--fibo-shadow-sm);
+    }
+
+    .btn-primary:hover {
+      box-shadow: var(--fibo-shadow-md);
+      transform: translateY(-1px);
+    }
+
+    .btn-lg {
+      padding: var(--fibo-spacing-5) var(--fibo-spacing-8);
+      font-size: var(--fibo-font-size-lg);
+    }
+
+    /* Grid examples */
+    .grid {
+      display: grid;
+      gap: var(--fibo-spacing-8);
+      margin-bottom: var(--fibo-spacing-13);
+    }
+
+    .grid-golden {
+      grid-template-columns: var(--fibo-golden-major) var(--fibo-golden-minor);
+    }
+
+    @media (max-width: 55rem) {
+      .grid-golden {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    /* Scale visualization */
+    .scale-demo {
+      display: flex;
+      flex-direction: column;
+      gap: var(--fibo-spacing-2);
+      margin-bottom: var(--fibo-spacing-8);
+    }
+
+    .scale-item {
+      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+      color: white;
+      padding: var(--fibo-spacing-3);
+      border-radius: var(--fibo-radius-base);
+      font-family: 'Courier New', monospace;
+      font-size: var(--fibo-font-size-sm);
+    }
+
+    /* Spacing scale */
+    .spacing-0 { width: var(--fibo-spacing-0); }
+    .spacing-1 { width: var(--fibo-spacing-1); }
+    .spacing-2 { width: var(--fibo-spacing-2); }
+    .spacing-3 { width: var(--fibo-spacing-3); }
+    .spacing-5 { width: var(--fibo-spacing-5); }
+    .spacing-8 { width: var(--fibo-spacing-8); }
+    .spacing-13 { width: var(--fibo-spacing-13); }
+    .spacing-21 { width: var(--fibo-spacing-21); }
+
+    /* Info box */
+    .info-box {
+      background: #e8f4f8;
+      border-left: var(--fibo-border-width-5) solid #3498db;
+      padding: var(--fibo-spacing-5);
+      border-radius: var(--fibo-radius-md);
+      margin-bottom: var(--fibo-spacing-8);
+    }
+
+    .code {
+      background: #2c3e50;
+      color: #ecf0f1;
+      padding: var(--fibo-spacing-5);
+      border-radius: var(--fibo-radius-md);
+      overflow-x: auto;
+      font-family: 'Courier New', monospace;
+      font-size: var(--fibo-font-size-sm);
+      line-height: var(--fibo-line-height-relaxed);
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <!-- Header -->
+    <header style="margin-bottom: var(--fibo-spacing-21);">
+      <h1>Fibo-Blocks Design System</h1>
+      <p style="font-size: var(--fibo-font-size-lg); color: #7f8c8d;">
+        A UX framework based on the golden ratio (φ ≈ 1.618) and Fibonacci sequence
+      </p>
+    </header>
+
+    <!-- Typography Scale -->
+    <section class="card">
+      <h2>Typography Scale (Golden Ratio)</h2>
+      <p>Font sizes progress by the golden ratio, creating natural visual hierarchy.</p>
+
+      <div style="margin: var(--fibo-spacing-8) 0;">
+        <div style="font-size: var(--fibo-font-size-xs); margin-bottom: var(--fibo-spacing-2);">
+          XS: The quick brown fox (0.618rem / ~10px)
+        </div>
+        <div style="font-size: var(--fibo-font-size-sm); margin-bottom: var(--fibo-spacing-2);">
+          SM: The quick brown fox (0.809rem / ~13px)
+        </div>
+        <div style="font-size: var(--fibo-font-size-base); margin-bottom: var(--fibo-spacing-2);">
+          BASE: The quick brown fox (1rem / 16px)
+        </div>
+        <div style="font-size: var(--fibo-font-size-lg); margin-bottom: var(--fibo-spacing-2);">
+          LG: The quick brown fox (1.618rem / ~26px)
+        </div>
+        <div style="font-size: var(--fibo-font-size-xl); margin-bottom: var(--fibo-spacing-2);">
+          XL: The quick brown fox (2.618rem / ~42px)
+        </div>
+        <div style="font-size: var(--fibo-font-size-2xl); margin-bottom: var(--fibo-spacing-2);">
+          2XL: Heading (4.236rem / ~68px)
+        </div>
+      </div>
+
+      <div class="code">
+h1 { font-size: var(--fibo-font-size-4xl); }
+p { font-size: var(--fibo-font-size-base); }
+      </div>
+    </section>
+
+    <!-- Spacing Scale -->
+    <section class="card">
+      <h2>Spacing Scale (Fibonacci)</h2>
+      <p>Spacing values based on Fibonacci numbers × 4px, creating harmonious gaps.</p>
+
+      <div class="scale-demo">
+        <div class="scale-item spacing-1">spacing-1: 4px (Fib: 1)</div>
+        <div class="scale-item spacing-2">spacing-2: 8px (Fib: 2)</div>
+        <div class="scale-item spacing-3">spacing-3: 12px (Fib: 3)</div>
+        <div class="scale-item spacing-5">spacing-5: 20px (Fib: 5)</div>
+        <div class="scale-item spacing-8">spacing-8: 32px (Fib: 8)</div>
+        <div class="scale-item spacing-13">spacing-13: 52px (Fib: 13)</div>
+        <div class="scale-item spacing-21">spacing-21: 84px (Fib: 21)</div>
+      </div>
+
+      <div class="code">
+.card { padding: var(--fibo-spacing-8); }
+.section { margin-bottom: var(--fibo-spacing-13); }
+      </div>
+    </section>
+
+    <!-- Golden Ratio Layout -->
+    <section class="card">
+      <h2>Golden Ratio Layout</h2>
+      <p>Content divided using golden ratio proportions (61.8% / 38.2%).</p>
+
+      <div class="grid grid-golden" style="margin-top: var(--fibo-spacing-5);">
+        <div style="background: #3498db; color: white; padding: var(--fibo-spacing-5); border-radius: var(--fibo-radius-md);">
+          <h3 style="color: white;">Major Section (61.8%)</h3>
+          <p style="color: white; margin: 0;">This section takes up the larger portion, following the golden ratio.</p>
+        </div>
+        <div style="background: #9b59b6; color: white; padding: var(--fibo-spacing-5); border-radius: var(--fibo-radius-md);">
+          <h3 style="color: white;">Minor Section (38.2%)</h3>
+          <p style="color: white; margin: 0;">Sidebar or secondary content.</p>
+        </div>
+      </div>
+
+      <div class="code">
+.layout {
+  display: grid;
+  grid-template-columns: var(--fibo-golden-major) var(--fibo-golden-minor);
+}
+      </div>
+    </section>
+
+    <!-- Shadows & Elevation -->
+    <section class="card">
+      <h2>Shadows & Elevation (Fibonacci)</h2>
+      <p>Shadow values use Fibonacci numbers for offset and blur, creating natural depth.</p>
+
+      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: var(--fibo-spacing-5); margin: var(--fibo-spacing-5) 0;">
+        <div style="background: white; padding: var(--fibo-spacing-5); border-radius: var(--fibo-radius-md); box-shadow: var(--fibo-shadow-sm); text-align: center;">
+          <strong>SM</strong><br>
+          <small>1px 2px</small>
+        </div>
+        <div style="background: white; padding: var(--fibo-spacing-5); border-radius: var(--fibo-radius-md); box-shadow: var(--fibo-shadow-base); text-align: center;">
+          <strong>BASE</strong><br>
+          <small>2px 3px</small>
+        </div>
+        <div style="background: white; padding: var(--fibo-spacing-5); border-radius: var(--fibo-radius-md); box-shadow: var(--fibo-shadow-md); text-align: center;">
+          <strong>MD</strong><br>
+          <small>3px 5px</small>
+        </div>
+        <div style="background: white; padding: var(--fibo-spacing-5); border-radius: var(--fibo-radius-md); box-shadow: var(--fibo-shadow-lg); text-align: center;">
+          <strong>LG</strong><br>
+          <small>5px 8px</small>
+        </div>
+        <div style="background: white; padding: var(--fibo-spacing-5); border-radius: var(--fibo-radius-md); box-shadow: var(--fibo-shadow-xl); text-align: center;">
+          <strong>XL</strong><br>
+          <small>8px 13px</small>
+        </div>
+      </div>
+    </section>
+
+    <!-- Buttons -->
+    <section class="card">
+      <h2>Button Components</h2>
+      <p>Buttons with golden ratio proportions and Fibonacci spacing.</p>
+
+      <div style="display: flex; gap: var(--fibo-spacing-3); flex-wrap: wrap; margin-top: var(--fibo-spacing-5);">
+        <button class="btn btn-primary">Regular Button</button>
+        <button class="btn btn-primary btn-lg">Large Button</button>
+      </div>
+    </section>
+
+    <!-- Mathematical Foundation -->
+    <section class="card">
+      <h2>The Mathematics</h2>
+
+      <div class="info-box">
+        <h3>The Golden Ratio (φ)</h3>
+        <p style="margin: 0;">
+          φ = (1 + √5) / 2 ≈ 1.618033988749895
+        </p>
+        <p style="margin-top: var(--fibo-spacing-3); margin-bottom: 0;">
+          Each font size is φ times the previous size, creating perfect visual harmony.
+        </p>
+      </div>
+
+      <div class="info-box" style="background: #fff3cd; border-color: #ffc107;">
+        <h3>The Fibonacci Sequence</h3>
+        <p style="margin: 0;">
+          0, 1, 1, 2, 3, 5, 8, 13, 21, 34, 55, 89, 144...
+        </p>
+        <p style="margin-top: var(--fibo-spacing-3); margin-bottom: 0;">
+          Each spacing value uses a Fibonacci number, creating natural progression.
+        </p>
+      </div>
+    </section>
+
+    <!-- Footer -->
+    <footer style="text-align: center; margin-top: var(--fibo-spacing-21); padding: var(--fibo-spacing-8); color: #7f8c8d;">
+      <p>Made with the golden ratio • φ ≈ 1.618</p>
+      <p style="font-size: var(--fibo-font-size-sm); margin: 0;">
+        fibo-blocks v0.1.0 • Licensed under LGPL-3.0
+      </p>
+    </footer>
+  </div>
+</body>
+</html>

@@ -1,0 +1,177 @@
+/**
+ * Base CSS custom properties for fibo-blocks
+ *
+ * These variables can be used throughout your CSS and can be
+ * overridden for theming or customization.
+ */
+
+:root {
+  /* ========================================
+     SPACING SCALE (Fibonacci)
+     ======================================== */
+
+  --fibo-spacing-0: 0;
+  --fibo-spacing-1: 0.25rem;    /* 4px */
+  --fibo-spacing-2: 0.5rem;     /* 8px */
+  --fibo-spacing-3: 0.75rem;    /* 12px */
+  --fibo-spacing-5: 1.25rem;    /* 20px */
+  --fibo-spacing-8: 2rem;       /* 32px */
+  --fibo-spacing-13: 3.25rem;   /* 52px */
+  --fibo-spacing-21: 5.25rem;   /* 84px */
+  --fibo-spacing-34: 8.5rem;    /* 136px */
+  --fibo-spacing-55: 13.75rem;  /* 220px */
+  --fibo-spacing-89: 22.25rem;  /* 356px */
+
+  /* ========================================
+     TYPOGRAPHY SCALE (Golden Ratio)
+     ======================================== */
+
+  /* Font Sizes */
+  --fibo-font-size-xs: 0.618rem;    /* ~10px */
+  --fibo-font-size-sm: 0.809rem;    /* ~13px */
+  --fibo-font-size-base: 1rem;      /* 16px */
+  --fibo-font-size-lg: 1.618rem;    /* ~26px */
+  --fibo-font-size-xl: 2.618rem;    /* ~42px */
+  --fibo-font-size-2xl: 4.236rem;   /* ~68px */
+  --fibo-font-size-3xl: 6.854rem;   /* ~110px */
+  --fibo-font-size-4xl: 11.089rem;  /* ~177px */
+  --fibo-font-size-5xl: 17.942rem;  /* ~287px */
+
+  /* Line Heights */
+  --fibo-line-height-none: 1;
+  --fibo-line-height-tight: 1.272;
+  --fibo-line-height-normal: 1.618;
+  --fibo-line-height-relaxed: 2.058;
+  --fibo-line-height-loose: 2.618;
+
+  /* Letter Spacing */
+  --fibo-letter-spacing-tighter: -0.05em;
+  --fibo-letter-spacing-tight: -0.025em;
+  --fibo-letter-spacing-normal: 0;
+  --fibo-letter-spacing-wide: 0.025em;
+  --fibo-letter-spacing-wider: 0.05em;
+  --fibo-letter-spacing-widest: 0.08em;
+
+  /* Font Weights */
+  --fibo-font-weight-thin: 100;
+  --fibo-font-weight-extralight: 200;
+  --fibo-font-weight-light: 300;
+  --fibo-font-weight-normal: 400;
+  --fibo-font-weight-medium: 500;
+  --fibo-font-weight-semibold: 600;
+  --fibo-font-weight-bold: 700;
+  --fibo-font-weight-extrabold: 800;
+  --fibo-font-weight-black: 900;
+
+  /* ========================================
+     BORDERS
+     ======================================== */
+
+  /* Border Widths */
+  --fibo-border-width-0: 0;
+  --fibo-border-width-1: 1px;
+  --fibo-border-width-2: 2px;
+  --fibo-border-width-3: 3px;
+  --fibo-border-width-5: 5px;
+  --fibo-border-width-8: 8px;
+
+  /* Border Radius */
+  --fibo-radius-none: 0;
+  --fibo-radius-sm: 0.125rem;   /* 2px */
+  --fibo-radius-base: 0.25rem;  /* 4px */
+  --fibo-radius-md: 0.5rem;     /* 8px */
+  --fibo-radius-lg: 0.809rem;   /* ~13px */
+  --fibo-radius-xl: 1.309rem;   /* ~21px */
+  --fibo-radius-2xl: 2.118rem;  /* ~34px */
+  --fibo-radius-full: 9999px;
+
+  /* ========================================
+     DIMENSIONS
+     ======================================== */
+
+  /* Container Max Widths */
+  --fibo-container-xs: 21rem;    /* 336px */
+  --fibo-container-sm: 34rem;    /* 544px */
+  --fibo-container-md: 55rem;    /* 880px */
+  --fibo-container-lg: 89rem;    /* 1424px */
+  --fibo-container-xl: 144rem;   /* 2304px */
+
+  /* Breakpoints (for reference) */
+  --fibo-breakpoint-xs: 21rem;
+  --fibo-breakpoint-sm: 34rem;
+  --fibo-breakpoint-md: 55rem;
+  --fibo-breakpoint-lg: 89rem;
+  --fibo-breakpoint-xl: 144rem;
+
+  /* Golden Ratio Divisions */
+  --fibo-golden-major: 61.8%;
+  --fibo-golden-minor: 38.2%;
+
+  /* Icon Sizes */
+  --fibo-icon-xs: 0.75rem;     /* 12px */
+  --fibo-icon-sm: 1rem;        /* 16px */
+  --fibo-icon-base: 1.313rem;  /* 21px */
+  --fibo-icon-lg: 2.125rem;    /* 34px */
+  --fibo-icon-xl: 3.438rem;    /* 55px */
+  --fibo-icon-2xl: 5.563rem;   /* 89px */
+
+  /* ========================================
+     SHADOWS (Elevation)
+     ======================================== */
+
+  --fibo-shadow-none: none;
+  --fibo-shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+  --fibo-shadow-base: 0 2px 3px 0 rgba(0, 0, 0, 0.08);
+  --fibo-shadow-md: 0 3px 5px 0 rgba(0, 0, 0, 0.1);
+  --fibo-shadow-lg: 0 5px 8px 0 rgba(0, 0, 0, 0.12);
+  --fibo-shadow-xl: 0 8px 13px 0 rgba(0, 0, 0, 0.15);
+  --fibo-shadow-2xl: 0 13px 21px 0 rgba(0, 0, 0, 0.18);
+
+  /* Inner Shadows */
+  --fibo-shadow-inner-sm: inset 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+  --fibo-shadow-inner-base: inset 0 2px 3px 0 rgba(0, 0, 0, 0.08);
+  --fibo-shadow-inner-md: inset 0 3px 5px 0 rgba(0, 0, 0, 0.1);
+
+  /* Z-Index Layers */
+  --fibo-z-hide: -1;
+  --fibo-z-base: 0;
+  --fibo-z-dropdown: 1000;
+  --fibo-z-sticky: 1100;
+  --fibo-z-fixed: 1200;
+  --fibo-z-overlay: 1300;
+  --fibo-z-modal: 2100;
+  --fibo-z-popover: 3400;
+  --fibo-z-tooltip: 5500;
+
+  /* ========================================
+     CONSTANTS
+     ======================================== */
+
+  --fibo-phi: 1.618;
+  --fibo-base-unit: 16px;
+}
+
+/* ========================================
+   RESET & BASE STYLES
+   ======================================== */
+
+/* Optional: Apply base font size using golden ratio principles */
+.fibo-base {
+  font-size: var(--fibo-font-size-base);
+  line-height: var(--fibo-line-height-normal);
+}
+
+/* Container utility */
+.fibo-container {
+  width: 100%;
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: var(--fibo-spacing-5);
+  padding-right: var(--fibo-spacing-5);
+}
+
+.fibo-container-xs { max-width: var(--fibo-container-xs); }
+.fibo-container-sm { max-width: var(--fibo-container-sm); }
+.fibo-container-md { max-width: var(--fibo-container-md); }
+.fibo-container-lg { max-width: var(--fibo-container-lg); }
+.fibo-container-xl { max-width: var(--fibo-container-xl); }

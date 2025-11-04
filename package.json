@@ -1,0 +1,54 @@
+{
+  "name": "fibo-blocks",
+  "version": "0.1.0",
+  "description": "A modern UX framework based on the golden ratio and Fibonacci sequence principles",
+  "main": "dist/index.js",
+  "module": "dist/index.esm.js",
+  "types": "dist/index.d.ts",
+  "files": [
+    "dist",
+    "src"
+  ],
+  "scripts": {
+    "build": "npm run build:ts && npm run build:css",
+    "build:ts": "tsc",
+    "build:css": "node scripts/generate-css.js",
+    "test": "jest",
+    "test:watch": "jest --watch",
+    "dev": "tsc --watch",
+    "lint": "eslint src --ext .ts",
+    "format": "prettier --write \"src/**/*.ts\"",
+    "prepublishOnly": "npm run build"
+  },
+  "keywords": [
+    "design-system",
+    "golden-ratio",
+    "fibonacci",
+    "css",
+    "typography",
+    "spacing",
+    "ui",
+    "framework"
+  ],
+  "author": "fibo-blocks team",
+  "license": "LGPL-3.0",
+  "devDependencies": {
+    "@types/jest": "^29.5.0",
+    "@types/node": "^20.0.0",
+    "@typescript-eslint/eslint-plugin": "^6.0.0",
+    "@typescript-eslint/parser": "^6.0.0",
+    "eslint": "^8.0.0",
+    "jest": "^29.5.0",
+    "prettier": "^3.0.0",
+    "ts-jest": "^29.1.0",
+    "typescript": "^5.0.0"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/Raducioiu/fibo-blocks.git"
+  },
+  "bugs": {
+    "url": "https://github.com/Raducioiu/fibo-blocks/issues"
+  },
+  "homepage": "https://github.com/Raducioiu/fibo-blocks#readme"
+}
