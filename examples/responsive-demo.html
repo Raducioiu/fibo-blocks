@@ -1,0 +1,400 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Fibo-Blocks Responsive Demo</title>
+  <link rel="stylesheet" href="../src/styles/index.css">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+      color: #1a1a1a;
+      min-height: 100vh;
+    }
+
+    .demo-container {
+      max-width: var(--fibo-container-lg);
+      margin: 0 auto;
+      padding: var(--fibo-spacing-8);
+    }
+
+    .header {
+      background: white;
+      border-radius: var(--fibo-radius-lg);
+      padding: var(--fibo-spacing-8);
+      margin-bottom: var(--fibo-spacing-8);
+      box-shadow: var(--fibo-shadow-xl);
+    }
+
+    .info-banner {
+      background: #3498db;
+      color: white;
+      padding: var(--fibo-spacing-5);
+      border-radius: var(--fibo-radius-md);
+      margin-bottom: var(--fibo-spacing-8);
+      text-align: center;
+    }
+
+    .card {
+      background: white;
+      border-radius: var(--fibo-radius-responsive);
+      padding: clamp(var(--fibo-spacing-5), 3vw, var(--fibo-spacing-13));
+      margin-bottom: var(--fibo-spacing-5);
+      box-shadow: var(--fibo-shadow-responsive);
+      transition: all 0.3s;
+    }
+
+    .card:hover {
+      transform: translateY(-2px);
+      box-shadow: var(--fibo-shadow-xl);
+    }
+
+    .viewport-indicator {
+      position: fixed;
+      top: var(--fibo-spacing-3);
+      right: var(--fibo-spacing-3);
+      background: rgba(0, 0, 0, 0.8);
+      color: white;
+      padding: var(--fibo-spacing-3) var(--fibo-spacing-5);
+      border-radius: var(--fibo-radius-full);
+      font-size: var(--fibo-font-size-sm);
+      font-weight: var(--fibo-font-weight-bold);
+      z-index: 9999;
+      font-family: monospace;
+    }
+
+    .feature-grid {
+      margin: var(--fibo-spacing-8) 0;
+    }
+
+    .feature-card {
+      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+      color: white;
+      padding: var(--fibo-spacing-8);
+      border-radius: var(--fibo-radius-lg);
+      text-align: center;
+    }
+
+    .feature-card h3 {
+      margin-bottom: var(--fibo-spacing-3);
+      font-size: var(--fibo-font-size-lg);
+    }
+
+    .test-section {
+      background: #f8f9fa;
+      padding: var(--fibo-spacing-8);
+      border-radius: var(--fibo-radius-lg);
+      margin-bottom: var(--fibo-spacing-8);
+    }
+
+    .size-demo {
+      display: flex;
+      flex-direction: column;
+      gap: var(--fibo-spacing-3);
+    }
+
+    .size-bar {
+      background: linear-gradient(90deg, #667eea 0%, #764ba2 100%);
+      height: var(--fibo-spacing-5);
+      border-radius: var(--fibo-radius-full);
+      transition: width 0.3s;
+      position: relative;
+    }
+
+    .size-label {
+      position: absolute;
+      right: var(--fibo-spacing-2);
+      top: 50%;
+      transform: translateY(-50%);
+      color: white;
+      font-size: var(--fibo-font-size-xs);
+      font-weight: var(--fibo-font-weight-bold);
+    }
+
+    code {
+      background: #2c3e50;
+      color: #ecf0f1;
+      padding: var(--fibo-spacing-1) var(--fibo-spacing-2);
+      border-radius: var(--fibo-radius-sm);
+      font-family: 'Courier New', monospace;
+      font-size: var(--fibo-font-size-sm);
+    }
+  </style>
+</head>
+<body>
+  <!-- Viewport Indicator -->
+  <div class="viewport-indicator" id="viewportIndicator">
+    Loading...
+  </div>
+
+  <div class="demo-container">
+    <!-- Header -->
+    <header class="header">
+      <h1 class="fibo-text-fluid-3xl" style="margin-bottom: var(--fibo-spacing-3); background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent;">
+        Responsive Demo
+      </h1>
+      <p class="fibo-body-responsive" style="color: #7f8c8d;">
+        Resize your browser window to see automatic size adaptation in action!
+      </p>
+    </header>
+
+    <!-- Info Banner -->
+    <div class="info-banner">
+      <strong>👆 Try resizing your browser window</strong> - All sizes adapt automatically using Fibonacci & Golden Ratio
+    </div>
+
+    <!-- Fluid Typography Demo -->
+    <section class="card">
+      <h2 class="fibo-text-fluid-xl" style="margin-bottom: var(--fibo-spacing-5);">
+        📱 Fluid Typography
+      </h2>
+      <p class="fibo-body-responsive" style="margin-bottom: var(--fibo-spacing-5);">
+        Typography automatically scales with viewport width. No JavaScript required!
+      </p>
+
+      <div style="margin-bottom: var(--fibo-spacing-3);">
+        <div class="fibo-text-fluid-xs" style="margin-bottom: var(--fibo-spacing-2);">
+          XS Text - Scales smoothly with viewport
+        </div>
+        <div class="fibo-text-fluid-sm" style="margin-bottom: var(--fibo-spacing-2);">
+          SM Text - Scales smoothly with viewport
+        </div>
+        <div class="fibo-text-fluid-base" style="margin-bottom: var(--fibo-spacing-2);">
+          Base Text - Scales smoothly with viewport
+        </div>
+        <div class="fibo-text-fluid-lg" style="margin-bottom: var(--fibo-spacing-2);">
+          LG Text - Scales smoothly with viewport
+        </div>
+        <div class="fibo-text-fluid-xl" style="margin-bottom: var(--fibo-spacing-2);">
+          XL Text - Scales smoothly with viewport
+        </div>
+      </div>
+
+      <code>class="fibo-text-fluid-xl"</code>
+    </section>
+
+    <!-- Responsive Grid Demo -->
+    <section class="card">
+      <h2 class="fibo-text-fluid-xl" style="margin-bottom: var(--fibo-spacing-5);">
+        📐 Responsive Grid
+      </h2>
+      <p class="fibo-body-responsive" style="margin-bottom: var(--fibo-spacing-5);">
+        Grid columns adapt automatically: 1 col (mobile) → 2 cols (tablet) → 3 cols (desktop) → 5 cols (wide)
+      </p>
+
+      <div class="fibo-grid-responsive feature-grid">
+        <div class="feature-card">
+          <h3>Feature 1</h3>
+          <p>Auto-adapting</p>
+        </div>
+        <div class="feature-card">
+          <h3>Feature 2</h3>
+          <p>Fibonacci cols</p>
+        </div>
+        <div class="feature-card">
+          <h3>Feature 3</h3>
+          <p>Pure CSS</p>
+        </div>
+        <div class="feature-card">
+          <h3>Feature 4</h3>
+          <p>No JS needed</p>
+        </div>
+        <div class="feature-card">
+          <h3>Feature 5</h3>
+          <p>Responsive</p>
+        </div>
+      </div>
+
+      <code>class="fibo-grid-responsive"</code>
+    </section>
+
+    <!-- Golden Ratio Layout Demo -->
+    <section class="card">
+      <h2 class="fibo-text-fluid-xl" style="margin-bottom: var(--fibo-spacing-5);">
+        📏 Golden Ratio Layout
+      </h2>
+      <p class="fibo-body-responsive" style="margin-bottom: var(--fibo-spacing-5);">
+        Stacks on mobile, splits to 61.8% / 38.2% on desktop. The golden ratio in action!
+      </p>
+
+      <div class="fibo-grid-golden">
+        <div style="background: #3498db; color: white; padding: var(--fibo-spacing-5); border-radius: var(--fibo-radius-md); text-align: center;">
+          <h3 style="margin-bottom: var(--fibo-spacing-2);">Major (61.8%)</h3>
+          <p style="margin: 0;">Main content area</p>
+        </div>
+        <div style="background: #9b59b6; color: white; padding: var(--fibo-spacing-5); border-radius: var(--fibo-radius-md); text-align: center;">
+          <h3 style="margin-bottom: var(--fibo-spacing-2);">Minor (38.2%)</h3>
+          <p style="margin: 0;">Sidebar area</p>
+        </div>
+      </div>
+
+      <div style="margin-top: var(--fibo-spacing-5);">
+        <code>class="fibo-grid-golden"</code>
+      </div>
+    </section>
+
+    <!-- Adaptive Spacing Demo -->
+    <section class="card">
+      <h2 class="fibo-text-fluid-xl" style="margin-bottom: var(--fibo-spacing-5);">
+        ↔️ Adaptive Spacing
+      </h2>
+      <p class="fibo-body-responsive" style="margin-bottom: var(--fibo-spacing-5);">
+        Watch the card padding change as you resize. Uses <code>clamp()</code> for smooth adaptation.
+      </p>
+
+      <div class="test-section">
+        <div class="size-demo">
+          <div>
+            <strong>Container Padding:</strong> 20px (mobile) → 52px (desktop)
+            <div class="size-bar" style="width: 30%;">
+              <span class="size-label">Fluid</span>
+            </div>
+          </div>
+          <div>
+            <strong>Section Spacing:</strong> 32px → 84px
+            <div class="size-bar" style="width: 50%;">
+              <span class="size-label">Clamp</span>
+            </div>
+          </div>
+          <div>
+            <strong>Element Spacing:</strong> 12px → 32px
+            <div class="size-bar" style="width: 40%;">
+              <span class="size-label">Auto</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <p class="fibo-body-responsive" style="margin-bottom: 0;">
+        These values use Fibonacci numbers and scale naturally with viewport width.
+      </p>
+    </section>
+
+    <!-- Breakpoint Info -->
+    <section class="card">
+      <h2 class="fibo-text-fluid-xl" style="margin-bottom: var(--fibo-spacing-5);">
+        📊 Current Breakpoint Info
+      </h2>
+
+      <div class="test-section">
+        <table style="width: 100%; border-collapse: collapse;">
+          <thead>
+            <tr style="background: #f1f3f5;">
+              <th style="padding: var(--fibo-spacing-3); text-align: left; border-bottom: 2px solid #dee2e6;">Breakpoint</th>
+              <th style="padding: var(--fibo-spacing-3); text-align: left; border-bottom: 2px solid #dee2e6;">Width</th>
+              <th style="padding: var(--fibo-spacing-3); text-align: left; border-bottom: 2px solid #dee2e6;">Fibonacci</th>
+            </tr>
+          </thead>
+          <tbody id="breakpointTable">
+            <tr>
+              <td style="padding: var(--fibo-spacing-2);">xs</td>
+              <td style="padding: var(--fibo-spacing-2);">336px (21rem)</td>
+              <td style="padding: var(--fibo-spacing-2);">21</td>
+            </tr>
+            <tr style="background: #f8f9fa;">
+              <td style="padding: var(--fibo-spacing-2);">sm</td>
+              <td style="padding: var(--fibo-spacing-2);">544px (34rem)</td>
+              <td style="padding: var(--fibo-spacing-2);">34</td>
+            </tr>
+            <tr>
+              <td style="padding: var(--fibo-spacing-2);">md</td>
+              <td style="padding: var(--fibo-spacing-2);">880px (55rem)</td>
+              <td style="padding: var(--fibo-spacing-2);">55</td>
+            </tr>
+            <tr style="background: #f8f9fa;">
+              <td style="padding: var(--fibo-spacing-2);">lg</td>
+              <td style="padding: var(--fibo-spacing-2);">1424px (89rem)</td>
+              <td style="padding: var(--fibo-spacing-2);">89</td>
+            </tr>
+            <tr>
+              <td style="padding: var(--fibo-spacing-2);">xl</td>
+              <td style="padding: var(--fibo-spacing-2);">2304px (144rem)</td>
+              <td style="padding: var(--fibo-spacing-2);">144</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div id="currentInfo" style="margin-top: var(--fibo-spacing-5); padding: var(--fibo-spacing-5); background: #e3f2fd; border-radius: var(--fibo-radius-md);">
+        <strong>Current Viewport:</strong> <span id="viewportWidth">-</span>px × <span id="viewportHeight">-</span>px<br>
+        <strong>Current Breakpoint:</strong> <span id="currentBreakpoint">-</span><br>
+        <strong>Orientation:</strong> <span id="orientation">-</span>
+      </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="card" style="text-align: center; background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); color: white;">
+      <p style="margin-bottom: var(--fibo-spacing-2);">
+        <strong>All sizing adapts automatically using the golden ratio (φ ≈ 1.618)</strong>
+      </p>
+      <p style="font-size: var(--fibo-font-size-sm); margin: 0; opacity: 0.9;">
+        No media queries in your code • Pure mathematical harmony • Zero configuration
+      </p>
+    </footer>
+  </div>
+
+  <script type="module">
+    // Update viewport indicator
+    function updateViewportInfo() {
+      const width = window.innerWidth;
+      const height = window.innerHeight;
+
+      let breakpoint = 'xs';
+      if (width >= 2304) breakpoint = 'xl';
+      else if (width >= 1424) breakpoint = 'lg';
+      else if (width >= 880) breakpoint = 'md';
+      else if (width >= 544) breakpoint = 'sm';
+
+      const orientation = width > height ? 'landscape' : 'portrait';
+
+      // Update indicator
+      const indicator = document.getElementById('viewportIndicator');
+      indicator.textContent = `${breakpoint} • ${width}×${height}`;
+
+      // Update info section
+      document.getElementById('viewportWidth').textContent = width;
+      document.getElementById('viewportHeight').textContent = height;
+      document.getElementById('currentBreakpoint').textContent = breakpoint.toUpperCase();
+      document.getElementById('orientation').textContent = orientation;
+
+      // Highlight current breakpoint in table
+      const rows = document.querySelectorAll('#breakpointTable tr');
+      rows.forEach((row, index) => {
+        const bps = ['xs', 'sm', 'md', 'lg', 'xl'];
+        if (bps[index] === breakpoint) {
+          row.style.background = '#4CAF50';
+          row.style.color = 'white';
+          row.style.fontWeight = 'bold';
+        } else {
+          row.style.background = index % 2 === 0 ? 'white' : '#f8f9fa';
+          row.style.color = '#1a1a1a';
+          row.style.fontWeight = 'normal';
+        }
+      });
+
+      // Store on document
+      document.documentElement.setAttribute('data-fibo-breakpoint', breakpoint);
+    }
+
+    // Initial update
+    updateViewportInfo();
+
+    // Watch for resize
+    let resizeTimer;
+    window.addEventListener('resize', () => {
+      clearTimeout(resizeTimer);
+      resizeTimer = setTimeout(updateViewportInfo, 100);
+    });
+
+    // Watch for orientation change
+    window.addEventListener('orientationchange', updateViewportInfo);
+  </script>
+</body>
+</html>

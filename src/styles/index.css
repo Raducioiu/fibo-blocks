@@ -1,0 +1,10 @@
+/**
+ * Fibo-Blocks CSS Bundle
+ * Import this file to get all styles
+ */
+
+/* Base CSS custom properties */
+@import './base.css';
+
+/* Responsive utilities and adaptive sizing */
+@import './responsive.css';

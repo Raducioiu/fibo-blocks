@@ -1,0 +1,351 @@
+/**
+ * Responsive utilities for automatic size adaptation
+ * These classes automatically adjust based on viewport size
+ */
+
+/* ========================================
+   FLUID TYPOGRAPHY
+   Automatically scales with viewport
+   ======================================== */
+
+.fibo-text-fluid-xs {
+  font-size: clamp(0.618rem, 0.518rem + 0.52vw, 0.809rem);
+  /* Scales from xs to sm */
+}
+
+.fibo-text-fluid-sm {
+  font-size: clamp(0.809rem, 0.709rem + 0.52vw, 1rem);
+  /* Scales from sm to base */
+}
+
+.fibo-text-fluid-base {
+  font-size: clamp(1rem, 0.832rem + 0.88vw, 1.318rem);
+  /* Scales from base to ~lg/2 */
+}
+
+.fibo-text-fluid-lg {
+  font-size: clamp(1.318rem, 0.982rem + 1.76vw, 1.618rem);
+  /* Scales between breakpoints */
+}
+
+.fibo-text-fluid-xl {
+  font-size: clamp(1.618rem, 1.082rem + 2.8vw, 2.618rem);
+  /* Scales from lg to xl */
+}
+
+.fibo-text-fluid-2xl {
+  font-size: clamp(2.618rem, 1.618rem + 5.24vw, 4.236rem);
+  /* Scales from xl to 2xl */
+}
+
+.fibo-text-fluid-3xl {
+  font-size: clamp(4.236rem, 2.618rem + 8.48vw, 6.854rem);
+  /* Scales from 2xl to 3xl */
+}
+
+/* ========================================
+   RESPONSIVE BASE FONT SIZE
+   Adjusts root font size by viewport
+   ======================================== */
+
+:root {
+  /* Fluid base font size: 14px → 18px */
+  font-size: clamp(0.875rem, 0.8rem + 0.4vw, 1.125rem);
+}
+
+/* Override for specific breakpoints if needed */
+@media (max-width: 21rem) { /* xs: <336px */
+  :root {
+    font-size: 14px;
+  }
+}
+
+@media (min-width: 89rem) { /* lg: >1424px */
+  :root {
+    font-size: 18px;
+  }
+}
+
+/* ========================================
+   RESPONSIVE SPACING
+   Adapts spacing to viewport
+   ======================================== */
+
+/* Container padding adapts automatically */
+.fibo-container-fluid {
+  padding-left: clamp(var(--fibo-spacing-5), 2vw, var(--fibo-spacing-13));
+  padding-right: clamp(var(--fibo-spacing-5), 2vw, var(--fibo-spacing-13));
+}
+
+/* Responsive vertical rhythm */
+.fibo-section-spacing {
+  margin-bottom: clamp(var(--fibo-spacing-8), 5vw, var(--fibo-spacing-21));
+}
+
+.fibo-element-spacing {
+  margin-bottom: clamp(var(--fibo-spacing-3), 2vw, var(--fibo-spacing-8));
+}
+
+/* ========================================
+   BREAKPOINT-SPECIFIC UTILITIES
+   ======================================== */
+
+/* Spacing utilities at each breakpoint */
+@media (min-width: 21rem) { /* xs */
+  .fibo-p-xs { padding: var(--fibo-spacing-3); }
+  .fibo-m-xs { margin: var(--fibo-spacing-3); }
+}
+
+@media (min-width: 34rem) { /* sm */
+  .fibo-p-sm { padding: var(--fibo-spacing-5); }
+  .fibo-m-sm { margin: var(--fibo-spacing-5); }
+}
+
+@media (min-width: 55rem) { /* md */
+  .fibo-p-md { padding: var(--fibo-spacing-8); }
+  .fibo-m-md { margin: var(--fibo-spacing-8); }
+}
+
+@media (min-width: 89rem) { /* lg */
+  .fibo-p-lg { padding: var(--fibo-spacing-13); }
+  .fibo-m-lg { margin: var(--fibo-spacing-13); }
+}
+
+/* ========================================
+   RESPONSIVE GRIDS
+   Adapts column count by viewport
+   ======================================== */
+
+.fibo-grid-responsive {
+  display: grid;
+  gap: var(--fibo-spacing-5);
+  grid-template-columns: 1fr;
+}
+
+@media (min-width: 34rem) { /* sm */
+  .fibo-grid-responsive {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (min-width: 55rem) { /* md */
+  .fibo-grid-responsive {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+@media (min-width: 89rem) { /* lg */
+  .fibo-grid-responsive {
+    grid-template-columns: repeat(5, 1fr); /* Fibonacci: 5 */
+  }
+}
+
+/* Golden ratio grid - stacks on mobile */
+.fibo-grid-golden {
+  display: grid;
+  gap: var(--fibo-spacing-8);
+  grid-template-columns: 1fr;
+}
+
+@media (min-width: 55rem) { /* md */
+  .fibo-grid-golden {
+    grid-template-columns: var(--fibo-golden-major) var(--fibo-golden-minor);
+  }
+}
+
+/* ========================================
+   RESPONSIVE TYPOGRAPHY SCALE
+   Font sizes adapt to viewport
+   ======================================== */
+
+.fibo-heading-responsive {
+  font-size: var(--fibo-font-size-xl);
+  line-height: var(--fibo-line-height-tight);
+}
+
+@media (min-width: 34rem) { /* sm */
+  .fibo-heading-responsive {
+    font-size: var(--fibo-font-size-2xl);
+  }
+}
+
+@media (min-width: 55rem) { /* md */
+  .fibo-heading-responsive {
+    font-size: var(--fibo-font-size-3xl);
+  }
+}
+
+@media (min-width: 89rem) { /* lg */
+  .fibo-heading-responsive {
+    font-size: var(--fibo-font-size-4xl);
+  }
+}
+
+/* Body text scales subtly */
+.fibo-body-responsive {
+  font-size: clamp(0.875rem, 0.8rem + 0.3vw, 1rem);
+  line-height: var(--fibo-line-height-relaxed);
+}
+
+/* ========================================
+   CONTAINER QUERIES (Modern Browsers)
+   Adapt based on container size, not viewport
+   ======================================== */
+
+@supports (container-type: inline-size) {
+  .fibo-container-query {
+    container-type: inline-size;
+    container-name: fibo-container;
+  }
+
+  /* Adjust padding based on container size */
+  @container fibo-container (min-width: 21rem) {
+    .fibo-card-adaptive {
+      padding: var(--fibo-spacing-5);
+    }
+  }
+
+  @container fibo-container (min-width: 34rem) {
+    .fibo-card-adaptive {
+      padding: var(--fibo-spacing-8);
+    }
+  }
+
+  @container fibo-container (min-width: 55rem) {
+    .fibo-card-adaptive {
+      padding: var(--fibo-spacing-13);
+    }
+  }
+}
+
+/* ========================================
+   UTILITY CLASSES FOR RESPONSIVE VISIBILITY
+   ======================================== */
+
+/* Hide on mobile */
+.fibo-hidden-xs {
+  display: none;
+}
+
+@media (min-width: 34rem) {
+  .fibo-hidden-xs {
+    display: block;
+  }
+}
+
+/* Hide on tablet and up */
+.fibo-hidden-sm-up {
+  display: none;
+}
+
+@media (max-width: 33.999rem) {
+  .fibo-hidden-sm-up {
+    display: block;
+  }
+}
+
+/* Show only on mobile */
+.fibo-visible-xs {
+  display: block;
+}
+
+@media (min-width: 34rem) {
+  .fibo-visible-xs {
+    display: none;
+  }
+}
+
+/* ========================================
+   RESPONSIVE ASPECT RATIOS
+   ======================================== */
+
+.fibo-aspect-golden {
+  aspect-ratio: 1.618 / 1;
+}
+
+.fibo-aspect-golden-portrait {
+  aspect-ratio: 1 / 1.618;
+}
+
+/* Stack on mobile, golden ratio on desktop */
+@media (max-width: 54.999rem) {
+  .fibo-aspect-golden-responsive {
+    aspect-ratio: 1 / 1;
+  }
+}
+
+@media (min-width: 55rem) {
+  .fibo-aspect-golden-responsive {
+    aspect-ratio: 1.618 / 1;
+  }
+}
+
+/* ========================================
+   RESPONSIVE BORDER RADIUS
+   ======================================== */
+
+.fibo-radius-responsive {
+  border-radius: var(--fibo-radius-base);
+}
+
+@media (min-width: 34rem) {
+  .fibo-radius-responsive {
+    border-radius: var(--fibo-radius-md);
+  }
+}
+
+@media (min-width: 55rem) {
+  .fibo-radius-responsive {
+    border-radius: var(--fibo-radius-lg);
+  }
+}
+
+/* ========================================
+   RESPONSIVE SHADOWS
+   Lighter shadows on mobile, deeper on desktop
+   ======================================== */
+
+.fibo-shadow-responsive {
+  box-shadow: var(--fibo-shadow-sm);
+}
+
+@media (min-width: 34rem) {
+  .fibo-shadow-responsive {
+    box-shadow: var(--fibo-shadow-md);
+  }
+}
+
+@media (min-width: 55rem) {
+  .fibo-shadow-responsive {
+    box-shadow: var(--fibo-shadow-lg);
+  }
+}
+
+/* ========================================
+   ADAPTIVE LAYOUT HELPERS
+   ======================================== */
+
+/* Stack on mobile, flex on desktop */
+.fibo-flex-responsive {
+  display: flex;
+  flex-direction: column;
+  gap: var(--fibo-spacing-5);
+}
+
+@media (min-width: 55rem) {
+  .fibo-flex-responsive {
+    flex-direction: row;
+    gap: var(--fibo-spacing-8);
+  }
+}
+
+/* Golden ratio flex on large screens */
+@media (min-width: 55rem) {
+  .fibo-flex-golden > *:first-child {
+    flex: 1.618;
+  }
+
+  .fibo-flex-golden > *:last-child {
+    flex: 1;
+  }
+}
